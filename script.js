@@ -11,6 +11,8 @@ const preload = () => {
   const particle = new THREE.TextureLoader( manager ).load( 'https://res.cloudinary.com/dfvtkoboz/image/upload/v1605013866/particle_a64uzf.png');
 
 }
+const sw= window.innerWidth
+
 
 if ( document.readyState === "complete" || (document.readyState !== "loading" && !document.documentElement.doScroll))
   preload ();
@@ -95,6 +97,7 @@ class CreateParticles {
 
 		this.buttom = false;
 
+		if (sw>=1024){			
 		this.data = {
 			text: "TECHLETICS'22 \n LAUNCH NOW",
 			amount: 1500,
@@ -103,6 +106,19 @@ class CreateParticles {
 			textSize: 16,
 			area: 250,
 			ease: .05,
+		}
+		}
+		else {
+			
+		this.data = {
+			text: "TECHLETICS'22 \n LAUNCH NOW",
+			amount: 1500,
+			particleSize: 1,
+			particleColor: 0xffffff,
+			textSize: 8,
+			area: 250,
+			ease: .05,
+		}
 		}
 
 		this.setup();
